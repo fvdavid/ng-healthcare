@@ -1,0 +1,121 @@
+<div class="card">
+    <div class="font-semibold text-xl mb-4">Patients</div>
+
+    <p-table #dt1 [value]="patiens" dataKey="id" [rows]="10" [loading]="loading" [rowHover]="true"
+        [showGridlines]="true" [paginator]="true"
+        [globalFilterFields]="['name', 'age', 'gender', 'contactNumber', 'city', 'province']" responsiveLayout="scroll"
+        [scrollable]="true">
+        <ng-template #caption>
+            <div class="flex justify-between items-center flex-column sm:flex-row">
+                <p-iconfield iconPosition="left" class="ml-auto">
+                    <p-inputicon>
+                        <i class="pi pi-search"></i>
+                    </p-inputicon>
+                    <input pInputText type="text" (input)="onGlobalFilter(dt1, $event)" placeholder="Search keyword" />
+                </p-iconfield>
+            </div>
+        </ng-template>
+        <ng-template #header>
+            <tr>
+                <th pFrozenColumn class="font-bold" style="min-width: 12rem">
+                    <div class="flex justify-between items-center">
+                        Nama
+                        <p-columnFilter type="text" field="name" display="menu"
+                            placeholder="Search by Nama"></p-columnFilter>
+                    </div>
+                </th>
+                <th style="min-width: 12rem">
+                    <div class="flex justify-between items-center">
+                        Umur
+                        <p-columnFilter field="age" matchMode="between" display="menu" [showMatchModes]="false"
+                            [showOperator]="false" [showAddButton]="false">
+                            <ng-template #filter let-filter="filterCallback">
+                                <p-slider [ngModel]="activityValues" [range]="true" (onSlideEnd)="filter($event.values)"
+                                    styleClass="m-3" [style]="{ 'min-width': '12rem' }"></p-slider>
+                                <div class="flex items-center justify-between px-2">
+                                    <span>{{ activityValues[0] }}</span>
+                                    <span>{{ activityValues[1] }}</span>
+                                </div>
+                            </ng-template>
+                        </p-columnFilter>
+                    </div>
+                </th>
+
+                <th style="min-width: 12rem">
+                    <div class="flex justify-between items-center">
+                        Jenis Kelamin
+                        <p-columnFilter type="text" field="gender.name" display="menu"
+                            placeholder="Search by Jenis Kelamin"></p-columnFilter>
+                    </div>
+                </th>
+
+                <th style="min-width: 12rem">
+                    <div class="flex justify-between items-center">
+                        Telepon
+                        <p-columnFilter type="text" field="contactNumber" display="menu"
+                            placeholder="Search by Telepon"></p-columnFilter>
+                    </div>
+                </th>
+
+                <th style="min-width: 12rem">
+                    <div class="flex justify-between items-center">
+                        Kota
+                        <p-columnFilter type="text" field="city" display="menu"
+                            placeholder="Search by Kota"></p-columnFilter>
+                    </div>
+                </th>
+
+                <th style="min-width: 12rem">
+                    <div class="flex justify-between items-center">
+                        Provinsi
+                        <p-columnFilter type="text" field="province" display="menu"
+                            placeholder="Search by Provinsi"></p-columnFilter>
+                    </div>
+                </th>
+
+                <th style="min-width: 6rem"></th>
+            </tr>
+        </ng-template>
+        <ng-template #body let-patient>
+            <tr>
+                <td pFrozenColumn class="font-bold">
+                    <div class="flex items-center gap-2">
+                        <img alt="patient" src="https://primefaces.org/cdn/primeng/images/demo/avatar/asiyajavayant.png"
+                            width="32" style="vertical-align: middle" />
+                        <span class="image-text">{{ patient.name }}</span>
+                    </div>
+                </td>
+                <td>
+                    {{ patient.age }}
+                </td>
+                <td>
+                    {{ patient.gender.name }}
+                </td>
+                <td>
+                    {{ patient.contactNumber }}
+                </td>
+                <td>
+                    {{ patient.city }}
+                </td>
+                <td>
+                    {{ patient.province }}
+                </td>
+
+                <td>
+                    <p-button icon="pi pi-pencil" class="mr-2" [rounded]="true" [outlined]="true"
+                        (click)="editPatient(patient)" />
+                </td>
+            </tr>
+        </ng-template>
+        <ng-template #emptymessage>
+            <tr>
+                <td colspan="8">No Patient found.</td>
+            </tr>
+        </ng-template>
+        <ng-template #loadingbody>
+            <tr>
+                <td colspan="8">Loading Patient data. Please wait.</td>
+            </tr>
+        </ng-template>
+    </p-table>
+</div>

@@ -1,13 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Gender } from '../model/gender';
 
-export interface Doctor {
-    id?: number;
-    name?: string;
-    image?: string;
-    specialty?: string;
-}
-
 export interface Patient {
     id?: number;
     name?: string;

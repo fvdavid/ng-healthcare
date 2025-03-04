@@ -26,8 +26,19 @@ export class AppMenu {
             },
 
             {
-                label: 'Patients',
-                items: [{ label: 'Patients', icon: 'pi pi-fw pi-home', routerLink: ['/patients'] }]
+                label: 'Heartcare',
+                items: [
+                    {
+                        label: 'Patients',
+                        icon: 'pi pi-fw pi-home',
+                        routerLink: ['/page/patients']
+                    },
+                    {
+                        label: 'Doctors',
+                        icon: 'pi pi-fw pi-home',
+                        routerLink: ['/page/doctors']
+                    }
+                ]
             },
 
             {

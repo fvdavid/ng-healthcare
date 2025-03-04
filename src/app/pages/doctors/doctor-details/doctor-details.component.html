@@ -1,0 +1,89 @@
+<div class="flex flex-col gap-6">
+    <img src="https://primefaces.org/cdn/primeng/images/demo/avatar/asiyajavayant.png" alt="image"
+        class="block m-auto pb-4" style="height: 150px; width: 150px; border-radius: 20px" />
+    <div>
+        <label for="name" class="block font-bold mb-3">Name</label>
+        <input type="text" pInputText id="name" [(ngModel)]="doctor.name" required autofocus fluid />
+
+        @if (!doctor.name) {
+        <small class="text-red-500">Name is required.</small>
+        }
+    </div>
+
+    <div>
+        <label for="specialty" class="block font-bold mb-3">Spesialis</label>
+        <input type="text" pInputText id="specialty" [(ngModel)]="doctor.specialty" required autofocus fluid />
+
+        @if (!doctor.specialty) {
+        <small class="text-red-500">Specialty is required.</small>
+        }
+    </div>
+
+    <div>
+        <label for="description" class="block font-bold mb-3">Umur</label>
+        <p-inputnumber [(ngModel)]="doctor.age" mode="decimal" [showButtons]="true" inputId="minmax-buttons" [min]="0"
+            [max]="100" fluid />
+    </div>
+
+    <p-fluid class="flex flex-wrap gap-4">
+        <div class="flex-1">
+            <label for="gender" class="block font-bold mb-3">Jenis Kelamin</label>
+            <p-select [options]="gender" [(ngModel)]="doctor.gender" optionLabel="name"
+                placeholder="Pilih Jenis Kelamin" fluid />
+
+
+            @if (!doctor.gender) {
+            <small class="text-red-500">Jenis Kelamin Tidak Bisa Kosong.</small>
+            }
+        </div>
+    </p-fluid>
+
+    <p-fluid class="flex flex-wrap gap-4">
+        <div class="flex-1">
+            <label for="inventoryStatus" class="block font-bold mb-3">Telepon</label>
+            <p-inputmask mask="(999) 9999-9999" [(ngModel)]="doctor.contactNumber" placeholder="(999) 9999-9999"
+                fluid />
+
+            @if (!doctor.contactNumber) {
+            <small class="text-red-500">Telepon is required.</small>
+            }
+        </div>
+    </p-fluid>
+
+    <div>
+        <label for="address" class="block font-bold mb-3">Alamat</label>
+        <textarea id="address" pTextarea [(ngModel)]="doctor.address" required rows="3" cols="20" fluid></textarea>
+    </div>
+
+
+    <p-fluid class="flex flex-wrap gap-4">
+        <div class="flex-auto">
+            <div>
+                <label for="city" class="block font-bold mb-3">Kota</label>
+                <input type="text" pInputText id="city" [(ngModel)]="doctor.city" required autofocus fluid />
+
+                @if (!doctor.city) {
+                <small class="text-red-500">Kota is required.</small>
+                }
+            </div>
+        </div>
+
+        <div class="flex-auto">
+            <div>
+                <label for="province" class="block font-bold mb-3">Provinsi</label>
+                <input type="text" pInputText id="province" [(ngModel)]="doctor.province" required autofocus fluid />
+
+                @if (!doctor.province) {
+                <small class="text-red-500">province is required.</small>
+                }
+            </div>
+        </div>
+    </p-fluid>
+</div>
+
+<div class="pt-7">
+    <div class="flex justify-evenly">
+        <p-button label="Cancel" icon="pi pi-times" text (click)="hideDialog()" />
+        <p-button label="Save" icon="pi pi-check" (click)="saveProduct()" />
+    </div>
+</div>

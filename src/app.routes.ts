@@ -18,12 +18,16 @@ export const appRoutes: Routes = [
     },
 
     {
-        path: 'patients',
+        path: 'page',
         component: AppLayout,
         children: [
             {
-                path: '',
+                path: 'patients',
                 loadComponent: () => import('./app/pages/patiens/patiens.component').then((p) => p.PatiensComponent)
+            },
+            {
+                path: 'doctors',
+                loadComponent: () => import('.//app/pages/doctors/doctors.component').then((d) => d.DoctorsComponent)
             }
         ]
     },

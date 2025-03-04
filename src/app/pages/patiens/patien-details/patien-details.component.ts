@@ -30,7 +30,7 @@ export class PatienDetailsComponent {
     gender: Gender[] | undefined;
 
     constructor() {
-        console.log('config ==> ', this.patien);
+        // console.log('config ==> ', this.patien);
 
         this.gender = [
             {

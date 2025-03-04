@@ -1,0 +1,103 @@
+<div class="card">
+    <div class="font-semibold text-xl mb-4">Dokter</div>
+
+    <p-table #dt1 [value]="doctors" dataKey="id" [rows]="10" [loading]="loading" [rowHover]="true"
+        [showGridlines]="true" [paginator]="true"
+        [globalFilterFields]="['name', 'age', 'gender', 'contactNumber', 'city', 'province']" responsiveLayout="scroll"
+        [scrollable]="true">
+        <ng-template #caption>
+            <div class="flex justify-between items-center flex-column sm:flex-row">
+                <p-iconfield iconPosition="left" class="ml-auto">
+                    <p-inputicon>
+                        <i class="pi pi-search"></i>
+                    </p-inputicon>
+                    <input pInputText type="text" (input)="onGlobalFilter(dt1, $event)" placeholder="Search keyword" />
+                </p-iconfield>
+            </div>
+        </ng-template>
+        <ng-template #header>
+            <tr>
+                <th pFrozenColumn class="font-bold" style="min-width: 12rem">
+                    <div class="flex justify-between items-center">
+                        Nama
+                        <p-columnFilter type="text" field="name" display="menu"
+                            placeholder="Search by Nama"></p-columnFilter>
+                    </div>
+                </th>
+
+                <th style="min-width: 12rem">
+                    <div class="flex justify-between items-center">
+                        Spesialis
+                        <p-columnFilter type="text" field="specialty" display="menu"
+                            placeholder="Search by Spesialis"></p-columnFilter>
+                    </div>
+                </th>
+
+                <th style="min-width: 12rem">
+                    <div class="flex justify-between items-center">
+                        Telepon
+                        <p-columnFilter type="text" field="contactNumber" display="menu"
+                            placeholder="Search by Telepon"></p-columnFilter>
+                    </div>
+                </th>
+
+                <th style="min-width: 12rem">
+                    <div class="flex justify-between items-center">
+                        Kota
+                        <p-columnFilter type="text" field="city" display="menu"
+                            placeholder="Search by Kota"></p-columnFilter>
+                    </div>
+                </th>
+
+                <th style="min-width: 12rem">
+                    <div class="flex justify-between items-center">
+                        Provinsi
+                        <p-columnFilter type="text" field="province" display="menu"
+                            placeholder="Search by Provinsi"></p-columnFilter>
+                    </div>
+                </th>
+
+                <th style="min-width: 6rem"></th>
+            </tr>
+        </ng-template>
+
+        <ng-template #body let-doctor>
+            <tr>
+                <td pFrozenColumn class="font-bold">
+                    <div class="flex items-center gap-2">
+                        <img alt="patient" src="https://primefaces.org/cdn/primeng/images/demo/avatar/asiyajavayant.png"
+                            width="32" style="vertical-align: middle" />
+                        <span class="image-text">{{ doctor.name }}</span>
+                    </div>
+                </td>
+                <td>
+                    {{ doctor.specialty }}
+                </td>
+                <td>
+                    {{ doctor.contactNumber }}
+                </td>
+                <td>
+                    {{ doctor.city }}
+                </td>
+                <td>
+                    {{ doctor.province }}
+                </td>
+
+                <td>
+                    <p-button icon="pi pi-pencil" class="mr-2" [rounded]="true" [outlined]="true"
+                        (click)="editDoctor(doctor)" />
+                </td>
+            </tr>
+        </ng-template>
+        <ng-template #emptymessage>
+            <tr>
+                <td colspan="8">No Doctor found.</td>
+            </tr>
+        </ng-template>
+        <ng-template #loadingbody>
+            <tr>
+                <td colspan="8">Loading Doctor data. Please wait.</td>
+            </tr>
+        </ng-template>
+    </p-table>
+</div>

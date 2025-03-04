@@ -1,46 +1,40 @@
-import { Component, ElementRef, inject, OnDestroy, ViewChild } from '@angular/core';
+import { Component, ElementRef, inject, Input, OnDestroy, OnInit, ViewChild } from '@angular/core';
+import { Doctor, DoctorsService } from '../../services/doctors.service';
 import { Table, TableModule } from 'primeng/table';
-import { TagModule } from 'primeng/tag';
-import { FormsModule } from '@angular/forms';
-import { ButtonModule } from 'primeng/button';
-import { MultiSelectModule } from 'primeng/multiselect';
-import { SelectModule } from 'primeng/select';
-import { CommonModule } from '@angular/common';
+import { DialogService, DynamicDialogRef } from 'primeng/dynamicdialog';
 import { IconFieldModule } from 'primeng/iconfield';
 import { InputIconModule } from 'primeng/inputicon';
-import { InputTextModule } from 'primeng/inputtext';
 import { SliderModule } from 'primeng/slider';
-import { ProgressBarModule } from 'primeng/progressbar';
-import { PatiensService, Patient } from '../../services/patiens.service';
-import { DialogService, DynamicDialogModule, DynamicDialogRef } from 'primeng/dynamicdialog';
-import { PatienDetailsComponent } from './patien-details/patien-details.component';
+import { ButtonModule } from 'primeng/button';
+import { FormsModule } from '@angular/forms';
+import { DoctorDetailsComponent } from './doctor-details/doctor-details.component';
 
 @Component({
-    selector: 'app-patiens',
-    imports: [TableModule, IconFieldModule, TagModule, FormsModule, ButtonModule, FormsModule, MultiSelectModule, SelectModule, CommonModule, InputIconModule, InputTextModule, SliderModule, ProgressBarModule],
-    templateUrl: './patiens.component.html',
-    styleUrl: './patiens.component.scss',
-    providers: [PatiensService, DialogService]
+    selector: 'app-doctors',
+    imports: [FormsModule, TableModule, IconFieldModule, InputIconModule, SliderModule, ButtonModule],
+    templateUrl: './doctors.component.html',
+    styleUrl: './doctors.component.scss',
+    providers: [DoctorsService, DialogService]
 })
-export class PatiensComponent implements OnDestroy {
+export class DoctorsComponent implements OnInit, OnDestroy {
     loading: boolean = true;
     activityValues: number[] = [0, 100];
 
-    @ViewChild('filter') filter!: ElementRef;
+    doctors: Doctor[] = [];
+    doctorsService: DoctorsService = inject(DoctorsService);
 
-    patiensService: PatiensService = inject(PatiensService);
-    patiens: Patient[] = [];
+    @ViewChild('filter') filter!: ElementRef;
 
     ref: DynamicDialogRef | undefined;
     dialogService: DialogService = inject(DialogService);
 
     ngOnInit() {
-        this.patiensService.getPatiens().then((p) => {
-            this.patiens = p;
+        this.doctorsService.getDoctors().then((d) => {
+            this.doctors = d;
             this.loading = false;
 
             // @ts-ignore
-            this.patiens.forEach((p) => (p.date = new Date(p.date)));
+            this.doctors.forEach((p) => (p.date = new Date(p.date)));
         });
     }
 
@@ -48,17 +42,17 @@ export class PatiensComponent implements OnDestroy {
         table.filterGlobal((event.target as HTMLInputElement).value, 'contains');
     }
 
-    editPatient(patient: Patient) {
-        this.ref = this.dialogService.open(PatienDetailsComponent, {
-            header: 'Patient Details',
+    editDoctor(doctor: Doctor) {
+        this.ref = this.dialogService.open(DoctorDetailsComponent, {
+            header: 'Dokter Details',
             width: '450px',
             modal: true,
             contentStyle: { overflow: 'auto' },
             data: {
-                patient: patient
+                doctor: doctor
             },
             closable: true,
-            position: 'center',
+            position: 'center'
         });
 
         this.ref.onClose.subscribe((data: any) => {

@@ -37,6 +37,11 @@ export class AppMenu {
                         label: 'Doctors',
                         icon: 'pi pi-fw pi-home',
                         routerLink: ['/page/doctors']
+                    },
+                    {
+                        label: 'Appointments',
+                        icon: 'pi pi-fw pi-home',
+                        routerLink: ['/page/appointments']
                     }
                 ]
             },

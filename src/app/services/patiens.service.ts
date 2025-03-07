@@ -12,6 +12,7 @@ export interface Patient {
     address?: string;
     city?: string;
     province?: string;
+    photoProfile?: string;
 }
 
 @Injectable()
@@ -20,7 +21,7 @@ export class PatiensService {
         return [
             {
                 id: 1,
-                name: 'John Doe',
+                name: 'Estrella Samu',
                 age: 25,
                 gender: {
                     name: 'Laki-laki',
@@ -31,11 +32,12 @@ export class PatiensService {
                 status: 'active',
                 address: 'Jln Panglima denai',
                 city: 'Medan',
-                province: 'Sumatera Utara'
+                province: 'Sumatera Utara',
+                photoProfile: 'bernardodominic.png'
             },
             {
                 id: 2,
-                name: 'Alex Smith',
+                name: 'Tiffiny Steffensmeier',
                 age: 30,
                 gender: {
                     name: 'Wanita',
@@ -46,130 +48,131 @@ export class PatiensService {
                 status: 'active',
                 address: 'Jln Katamso 109',
                 city: 'Medan',
-                province: 'Sumatera Utara'
-            },
-
-            {
-                id: 3,
-                name: 'John Doe',
-                age: 25,
-                gender: {
-                    name: 'Laki-laki',
-                    id: 1
-                },
-                contactNumber: '08123456789',
-                date: '2023-10-01',
-                status: 'active',
-                address: 'Jln Panglima denai',
-                city: 'Medan',
-                province: 'Sumatera Utara'
-            },
-            {
-                id: 4,
-                name: 'Alex Smith',
-                age: 30,
-                gender: {
-                    name: 'Wanita',
-                    id: 2
-                },
-                contactNumber: '08123456789',
-                date: '2023-10-01',
-                status: 'active',
-                address: 'Jln Katamso 109',
-                city: 'Medan',
-                province: 'Sumatera Utara'
-            },
-            {
-                id: 5,
-                name: 'John Doe',
-                age: 25,
-                gender: {
-                    name: 'Laki-laki',
-                    id: 1
-                },
-                contactNumber: '08123456789',
-                date: '2023-10-01',
-                status: 'active',
-                address: 'Jln Panglima denai',
-                city: 'Medan',
-                province: 'Sumatera Utara'
-            },
-            {
-                id: 6,
-                name: 'Alex Smith',
-                age: 30,
-                gender: {
-                    name: 'Wanita',
-                    id: 2
-                },
-                contactNumber: '08123456789',
-                date: '2023-10-01',
-                status: 'active',
-                address: 'Jln Katamso 109',
-                city: 'Medan',
-                province: 'Sumatera Utara'
-            },
-
-            {
-                id: 7,
-                name: 'John Doe',
-                age: 25,
-                gender: {
-                    name: 'Laki-laki',
-                    id: 1
-                },
-                contactNumber: '08123456789',
-                date: '2023-10-01',
-                status: 'active',
-                address: 'Jln Panglima denai',
-                city: 'Medan',
-                province: 'Sumatera Utara'
-            },
-            {
-                id: 8,
-                name: 'Alex Smith',
-                age: 30,
-                gender: {
-                    name: 'Wanita',
-                    id: 2
-                },
-                contactNumber: '08123456789',
-                date: '2023-10-01',
-                status: 'active',
-                address: 'Jln Katamso 109',
-                city: 'Medan',
-                province: 'Sumatera Utara'
-            },
-            {
-                id: 9,
-                name: 'John Doe',
-                age: 25,
-                gender: {
-                    name: 'Laki-laki',
-                    id: 1
-                },
-                contactNumber: '08123456789',
-                date: '2023-10-01',
-                status: 'active',
-                address: 'Jln Panglima denai',
-                city: 'Medan',
-                province: 'Sumatera Utara'
-            },
-            {
-                id: 10,
-                name: 'Alex Smith',
-                age: 30,
-                gender: {
-                    name: 'Wanita',
-                    id: 2
-                },
-                contactNumber: '08123456789',
-                date: '2023-10-01',
-                status: 'active',
-                address: 'Jln Katamso 109',
-                city: 'Medan',
-                province: 'Sumatera Utara'
+                province: 'Sumatera Utara',
+                photoProfile: 'ivanmagalhaes.png'
             }
+
+            // {
+            //     id: 3,
+            //     name: 'John Doe',
+            //     age: 25,
+            //     gender: {
+            //         name: 'Laki-laki',
+            //         id: 1
+            //     },
+            //     contactNumber: '08123456789',
+            //     date: '2023-10-01',
+            //     status: 'active',
+            //     address: 'Jln Panglima denai',
+            //     city: 'Medan',
+            //     province: 'Sumatera Utara'
+            // },
+            // {
+            //     id: 4,
+            //     name: 'Alex Smith',
+            //     age: 30,
+            //     gender: {
+            //         name: 'Wanita',
+            //         id: 2
+            //     },
+            //     contactNumber: '08123456789',
+            //     date: '2023-10-01',
+            //     status: 'active',
+            //     address: 'Jln Katamso 109',
+            //     city: 'Medan',
+            //     province: 'Sumatera Utara'
+            // },
+            // {
+            //     id: 5,
+            //     name: 'John Doe',
+            //     age: 25,
+            //     gender: {
+            //         name: 'Laki-laki',
+            //         id: 1
+            //     },
+            //     contactNumber: '08123456789',
+            //     date: '2023-10-01',
+            //     status: 'active',
+            //     address: 'Jln Panglima denai',
+            //     city: 'Medan',
+            //     province: 'Sumatera Utara'
+            // },
+            // {
+            //     id: 6,
+            //     name: 'Alex Smith',
+            //     age: 30,
+            //     gender: {
+            //         name: 'Wanita',
+            //         id: 2
+            //     },
+            //     contactNumber: '08123456789',
+            //     date: '2023-10-01',
+            //     status: 'active',
+            //     address: 'Jln Katamso 109',
+            //     city: 'Medan',
+            //     province: 'Sumatera Utara'
+            // },
+
+            // {
+            //     id: 7,
+            //     name: 'John Doe',
+            //     age: 25,
+            //     gender: {
+            //         name: 'Laki-laki',
+            //         id: 1
+            //     },
+            //     contactNumber: '08123456789',
+            //     date: '2023-10-01',
+            //     status: 'active',
+            //     address: 'Jln Panglima denai',
+            //     city: 'Medan',
+            //     province: 'Sumatera Utara'
+            // },
+            // {
+            //     id: 8,
+            //     name: 'Alex Smith',
+            //     age: 30,
+            //     gender: {
+            //         name: 'Wanita',
+            //         id: 2
+            //     },
+            //     contactNumber: '08123456789',
+            //     date: '2023-10-01',
+            //     status: 'active',
+            //     address: 'Jln Katamso 109',
+            //     city: 'Medan',
+            //     province: 'Sumatera Utara'
+            // },
+            // {
+            //     id: 9,
+            //     name: 'John Doe',
+            //     age: 25,
+            //     gender: {
+            //         name: 'Laki-laki',
+            //         id: 1
+            //     },
+            //     contactNumber: '08123456789',
+            //     date: '2023-10-01',
+            //     status: 'active',
+            //     address: 'Jln Panglima denai',
+            //     city: 'Medan',
+            //     province: 'Sumatera Utara'
+            // },
+            // {
+            //     id: 10,
+            //     name: 'Alex Smith',
+            //     age: 30,
+            //     gender: {
+            //         name: 'Wanita',
+            //         id: 2
+            //     },
+            //     contactNumber: '08123456789',
+            //     date: '2023-10-01',
+            //     status: 'active',
+            //     address: 'Jln Katamso 109',
+            //     city: 'Medan',
+            //     province: 'Sumatera Utara'
+            // }
         ];
     }
 

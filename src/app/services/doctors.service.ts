@@ -13,6 +13,7 @@ export interface Doctor {
     address?: string;
     city?: string;
     province?: string;
+    photoProfile?: string;
 }
 
 @Injectable()
@@ -23,9 +24,25 @@ export class DoctorsService {
         return [
             {
                 id: 1,
-                name: 'Ferdinan Alfian',
-                image: 'https://randomuser.me/api/portraits',
+                name: 'Dr Stevens, Charles T',
+                photoProfile: 'stephenshaw.png',
                 age: 37,
+                gender: {
+                    name: 'Laki-laki',
+                    id: 1
+                },
+                specialty: 'Dokter Umum',
+                contactNumber: '08123456789',
+                date: '2023-10-01',
+                address: 'Jln Sisingamangaraja',
+                city: 'Medan',
+                province: 'Sumatera Utara'
+            },
+            {
+                id: 2,
+                name: 'Dr Elvera Benimadho',
+                photoProfile: 'onyamalimba.png',
+                age: 42,
                 gender: {
                     name: 'Laki-laki',
                     id: 1

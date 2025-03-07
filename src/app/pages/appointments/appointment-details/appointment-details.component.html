@@ -1,0 +1,93 @@
+<div class="flex flex-col gap-6">
+
+    <div>
+        <label for="patient" class="block font-bold mb-3">Patient</label>
+        <p-select [options]="patiens" [(ngModel)]="appointment.patient" optionLabel="name" [filter]="true"
+            filterBy="name" placeholder="Select a Patient" fluid>
+            <ng-template #selectedItem let-selectedOption>
+                <div class="flex items-center gap-2">
+                    <img src="https://primefaces.org/cdn/primeng/images/demo/avatar/asiyajavayant.png"
+                        style="width: 18px" />
+                    <div>{{ selectedOption.name }}</div>
+                </div>
+            </ng-template>
+            <ng-template let-patien #item>
+                <div class="flex items-center gap-2">
+                    <img src="https://primefaces.org/cdn/primeng/images/demo/avatar/asiyajavayant.png"
+                        style="width: 18px" />
+                    <div>{{ patien.name }}</div>
+                </div>
+            </ng-template>
+        </p-select>
+    </div>
+
+    <div>
+        <label for="doctor" class="block font-bold mb-3">Doctor</label>
+        <!-- <input type="text" pInputText id="name" [(ngModel)]="appointment.doctor!.name" required autofocus fluid />
+
+        @if (!appointment.doctor!.name) {
+        <small class="text-red-500">Name is required.</small>
+        } -->
+
+        <p-select [options]="doctors" [(ngModel)]="appointment.doctor" optionLabel="name" [filter]="true"
+            filterBy="name" placeholder="Select a Doctor" fluid>
+            <ng-template #selectedItem let-selectedOptionDoctor>
+                <div class="flex items-center gap-2">
+                    <img src="https://primefaces.org/cdn/primeng/images/demo/avatar/asiyajavayant.png"
+                        style="width: 18px" />
+                    <div>{{ selectedOptionDoctor.name }}</div>
+                </div>
+            </ng-template>
+            <ng-template let-doctor #item>
+                <div class="flex items-center gap-2">
+                    <img src="https://primefaces.org/cdn/primeng/images/demo/avatar/asiyajavayant.png"
+                        style="width: 18px" />
+                    <div>{{ doctor.name }}</div>
+                </div>
+            </ng-template>
+        </p-select>
+    </div>
+
+    <p-fluid class="flex flex-wrap gap-4">
+        <div class="flex-auto">
+            <div>
+
+                <label for="date" class="block font-bold mb-3">Date</label>
+                <p-datepicker [(ngModel)]="appointment.appointmentDate" />
+
+                @if (!appointment.appointmentDate) {
+                <small class="text-red-500">Date Tidak Bisa Kosong.</small>
+                }
+            </div>
+        </div>
+
+        <div class="flex-auto">
+            <div>
+
+                <label for="time" class="block font-bold mb-3">Time</label>
+                <p-datepicker inputId="calendar-timeonly" [(ngModel)]="appointment.appointmentTime" [timeOnly]="true" />
+
+                @if (!appointment.appointmentTime) {
+                <small class="text-red-500">Time is required.</small>
+                }
+            </div>
+        </div>
+    </p-fluid>
+
+    <div>
+        <label for="description" class="block font-bold mb-3">Department</label>
+        <input type="text" pInputText id="name" [(ngModel)]="appointment.department" required autofocus fluid />
+
+        @if (!appointment.department) {
+        <small class="text-red-500">Department is required.</small>
+        }
+    </div>
+
+</div>
+
+<div class="pt-7">
+    <div class="flex justify-evenly">
+        <p-button label="Cancel" icon="pi pi-times" text (click)="hideDialog()" />
+        <p-button label="Save" icon="pi pi-check" (click)="saveAppointment()" />
+    </div>
+</div>

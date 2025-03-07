@@ -28,6 +28,10 @@ export const appRoutes: Routes = [
             {
                 path: 'doctors',
                 loadComponent: () => import('.//app/pages/doctors/doctors.component').then((d) => d.DoctorsComponent)
+            },
+            {
+                path: 'appointments',
+                loadComponent: () => import('./app/pages/appointments/appointments.component').then((a) => a.AppointmentsComponent)
             }
         ]
     },

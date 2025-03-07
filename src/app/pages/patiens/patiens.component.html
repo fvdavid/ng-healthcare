@@ -1,12 +1,15 @@
 <div class="card">
-    <div class="font-semibold text-xl mb-4">Patients</div>
+    <div class="font-semibold text-xl mb-4">Pasien</div>
 
-    <p-table #dt1 [value]="patiens" dataKey="id" [rows]="10" [loading]="loading" [rowHover]="true"
+    <p-table #dt1 [value]="patients" dataKey="id" [rows]="10" [loading]="loading" [rowHover]="true"
         [showGridlines]="true" [paginator]="true"
-        [globalFilterFields]="['name', 'age', 'gender', 'contactNumber', 'city', 'province']" responsiveLayout="scroll"
-        [scrollable]="true">
+        [globalFilterFields]="['name', 'age', 'gender.name', 'contactNumber', 'city', 'province']"
+        responsiveLayout="scroll" [scrollable]="true">
         <ng-template #caption>
             <div class="flex justify-between items-center flex-column sm:flex-row">
+                <button pButton label="Clear" class="p-button-outlined mb-2" icon="pi pi-filter-slash"
+                    (click)="clear(dt1)"></button>
+
                 <p-iconfield iconPosition="left" class="ml-auto">
                     <p-inputicon>
                         <i class="pi pi-search"></i>
@@ -17,13 +20,14 @@
         </ng-template>
         <ng-template #header>
             <tr>
-                <th pFrozenColumn class="font-bold" style="min-width: 12rem">
+                <th pFrozenColumn class="font-bold" style="min-width: 15rem">
                     <div class="flex justify-between items-center">
                         Nama
                         <p-columnFilter type="text" field="name" display="menu"
                             placeholder="Search by Nama"></p-columnFilter>
                     </div>
                 </th>
+
                 <th style="min-width: 12rem">
                     <div class="flex justify-between items-center">
                         Umur
@@ -80,7 +84,8 @@
             <tr>
                 <td pFrozenColumn class="font-bold">
                     <div class="flex items-center gap-2">
-                        <img alt="patient" src="https://primefaces.org/cdn/primeng/images/demo/avatar/asiyajavayant.png"
+                        <img [alt]="patient.name"
+                            src="https://primefaces.org/cdn/primeng/images/demo/avatar/{{ patient.photoProfile }}"
                             width="32" style="vertical-align: middle" />
                         <span class="image-text">{{ patient.name }}</span>
                     </div>

@@ -8,10 +8,11 @@ import { SliderModule } from 'primeng/slider';
 import { ButtonModule } from 'primeng/button';
 import { FormsModule } from '@angular/forms';
 import { DoctorDetailsComponent } from './doctor-details/doctor-details.component';
+import { InputTextModule } from 'primeng/inputtext';
 
 @Component({
     selector: 'app-doctors',
-    imports: [FormsModule, TableModule, IconFieldModule, InputIconModule, SliderModule, ButtonModule],
+    imports: [FormsModule, TableModule, IconFieldModule, InputIconModule, SliderModule, ButtonModule, InputTextModule],
     templateUrl: './doctors.component.html',
     styleUrl: './doctors.component.scss',
     providers: [DoctorsService, DialogService]
@@ -40,6 +41,11 @@ export class DoctorsComponent implements OnInit, OnDestroy {
 
     onGlobalFilter(table: Table, event: Event) {
         table.filterGlobal((event.target as HTMLInputElement).value, 'contains');
+    }
+
+    clear(table: Table) {
+        table.clear();
+        this.filter.nativeElement!.value = '';
     }
 
     editDoctor(doctor: Doctor) {

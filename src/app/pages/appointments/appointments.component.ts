@@ -10,10 +10,11 @@ import { DialogService, DynamicDialogRef } from 'primeng/dynamicdialog';
 import { AppointmentDetailsComponent } from './appointment-details/appointment-details.component';
 import { MultiSelectModule } from 'primeng/multiselect';
 import { FormsModule } from '@angular/forms';
-import { PatiensService, Patient } from '../../services/patiens.service';
+import { PatiensService } from '../../services/patiens.service';
 import { Doctor, DoctorsService } from '../../services/doctors.service';
 import { TagModule } from 'primeng/tag';
 import { SelectModule } from 'primeng/select';
+import { Patient } from '../../model/patient';
 
 @Component({
     selector: 'app-appointments',

@@ -4,7 +4,6 @@ import { FormsModule } from '@angular/forms';
 import { DynamicDialogConfig, DynamicDialogRef } from 'primeng/dynamicdialog';
 import { Select, SelectModule } from 'primeng/select';
 import { InputNumberModule } from 'primeng/inputnumber';
-import { Patient } from '../../../services/patiens.service';
 import { InputTextModule } from 'primeng/inputtext';
 import { TextareaModule } from 'primeng/textarea';
 import { InputMaskModule } from 'primeng/inputmask';
@@ -14,6 +13,7 @@ import { IconFieldModule } from 'primeng/iconfield';
 import { InputIconModule } from 'primeng/inputicon';
 import { ButtonModule } from 'primeng/button';
 import { Gender } from '../../../model/gender';
+import { Patient } from '../../../model/patient';
 
 @Component({
     selector: 'app-patien-details',

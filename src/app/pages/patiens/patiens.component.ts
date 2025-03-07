@@ -10,9 +10,12 @@ import { InputIconModule } from 'primeng/inputicon';
 import { InputTextModule } from 'primeng/inputtext';
 import { SliderModule } from 'primeng/slider';
 import { ProgressBarModule } from 'primeng/progressbar';
-import { PatiensService, Patient } from '../../services/patiens.service';
+import { PatiensService } from '../../services/patiens.service';
 import { DialogService, DynamicDialogRef } from 'primeng/dynamicdialog';
 import { PatienDetailsComponent } from './patien-details/patien-details.component';
+import { PatientInfoComponent } from './patient-info/patient-info.component';
+import { PatientInfoFooterComponent } from './patient-info-footer/patient-info-footer.component';
+import { Patient } from '../../model/patient';
 
 @Component({
     selector: 'app-patiens',
@@ -82,7 +85,46 @@ export class PatiensComponent implements OnDestroy {
     }
 
     handleSelect(patient: Patient) {
+
         console.log('patient ==> ', patient);
+
+        this.ref = this.dialogService.open(PatientInfoComponent, {
+            header: 'Pasien Informasi',
+            width: '70vw',
+            modal: true,
+            contentStyle: { overflow: 'auto' },
+            style: {
+                'min-height': '50vh'
+            },
+            breakpoints: {
+                '960px': '75vw',
+                '640px': '90vw'
+            },
+            templates: {
+                footer: PatientInfoFooterComponent
+            },
+            data: {
+                patientInfo: patient
+            },
+            // closable: true,
+            dismissableMask: true,
+            position: 'center'
+        });
+
+        this.ref.onClose.subscribe((data: any) => {
+            let summary_and_detail;
+            if (data) {
+                const buttonType = data?.buttonType;
+                summary_and_detail = buttonType ? { summary: 'No Product Selected', detail: `Pressed '${buttonType}' button` } : { summary: 'Product Selected', detail: data?.name };
+            } else {
+                summary_and_detail = { summary: 'No Product Selected', detail: 'Pressed Close button' };
+            }
+            // this.messageService.add({ severity: 'info', ...summary_and_detail, life: 3000 });
+        });
+
+        this.ref.onMaximize.subscribe((value) => {
+            // this.messageService.add({ severity: 'info', summary: 'Maximized', detail: `maximized: ${value.maximized}` });
+        });
     }
 
     ngOnDestroy() {

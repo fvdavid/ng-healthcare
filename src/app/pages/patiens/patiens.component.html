@@ -83,7 +83,7 @@
         </ng-template>
         <ng-template #body let-patient>
             <tr>
-                <td pFrozenColumn class="font-bold">
+                <td (click)="handleSelect(patient)" class="font-bold cursor-pointer" pFrozenColumn>
                     <div class="flex items-center gap-2">
                         <img [alt]="patient.name"
                             src="https://primefaces.org/cdn/primeng/images/demo/avatar/{{ patient.photoProfile }}"

@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import { Patient } from './patiens.service';
 import { Doctor } from './doctors.service';
+import { Patient } from '../model/patient';
 
 export interface Appointment {
     id?: string;

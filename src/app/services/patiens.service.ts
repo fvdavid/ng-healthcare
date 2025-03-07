@@ -1,23 +1,9 @@
 import { Injectable } from '@angular/core';
-import { Gender } from '../model/gender';
-
-export interface Patient {
-    id?: number;
-    name?: string;
-    age?: number;
-    gender?: Gender;
-    contactNumber?: string;
-    date?: string;
-    status?: string;
-    address?: string;
-    city?: string;
-    province?: string;
-    photoProfile?: string;
-}
+import { Patient } from '../model/patient';
 
 @Injectable()
 export class PatiensService {
-    getData() {
+    getData(): Patient[] {
         return [
             {
                 id: 1,
@@ -33,7 +19,15 @@ export class PatiensService {
                 address: 'Jln Panglima denai',
                 city: 'Medan',
                 province: 'Sumatera Utara',
-                photoProfile: 'bernardodominic.png'
+                photoProfile: 'bernardodominic.png',
+                patientRecords: [
+                    {
+                        diagnosis: 'Hypertension',
+                        treatment: 'Prescribed meds',
+                        medications: ['Lisinopril', 'X1', 'X2'],
+                        lastVisitDate: '2025-10-12'
+                    }
+                ]
             },
             {
                 id: 2,
@@ -49,130 +43,16 @@ export class PatiensService {
                 address: 'Jln Katamso 109',
                 city: 'Medan',
                 province: 'Sumatera Utara',
-                photoProfile: 'ivanmagalhaes.png'
+                photoProfile: 'ivanmagalhaes.png',
+                patientRecords: [
+                    {
+                        diagnosis: 'Diabetes Type 2',
+                        treatment: 'Insulin therapy',
+                        medications: ['Metformin'],
+                        lastVisitDate: '2025-10-01'
+                    }
+                ]
             }
-
-            // {
-            //     id: 3,
-            //     name: 'John Doe',
-            //     age: 25,
-            //     gender: {
-            //         name: 'Laki-laki',
-            //         id: 1
-            //     },
-            //     contactNumber: '08123456789',
-            //     date: '2023-10-01',
-            //     status: 'active',
-            //     address: 'Jln Panglima denai',
-            //     city: 'Medan',
-            //     province: 'Sumatera Utara'
-            // },
-            // {
-            //     id: 4,
-            //     name: 'Alex Smith',
-            //     age: 30,
-            //     gender: {
-            //         name: 'Wanita',
-            //         id: 2
-            //     },
-            //     contactNumber: '08123456789',
-            //     date: '2023-10-01',
-            //     status: 'active',
-            //     address: 'Jln Katamso 109',
-            //     city: 'Medan',
-            //     province: 'Sumatera Utara'
-            // },
-            // {
-            //     id: 5,
-            //     name: 'John Doe',
-            //     age: 25,
-            //     gender: {
-            //         name: 'Laki-laki',
-            //         id: 1
-            //     },
-            //     contactNumber: '08123456789',
-            //     date: '2023-10-01',
-            //     status: 'active',
-            //     address: 'Jln Panglima denai',
-            //     city: 'Medan',
-            //     province: 'Sumatera Utara'
-            // },
-            // {
-            //     id: 6,
-            //     name: 'Alex Smith',
-            //     age: 30,
-            //     gender: {
-            //         name: 'Wanita',
-            //         id: 2
-            //     },
-            //     contactNumber: '08123456789',
-            //     date: '2023-10-01',
-            //     status: 'active',
-            //     address: 'Jln Katamso 109',
-            //     city: 'Medan',
-            //     province: 'Sumatera Utara'
-            // },
-
-            // {
-            //     id: 7,
-            //     name: 'John Doe',
-            //     age: 25,
-            //     gender: {
-            //         name: 'Laki-laki',
-            //         id: 1
-            //     },
-            //     contactNumber: '08123456789',
-            //     date: '2023-10-01',
-            //     status: 'active',
-            //     address: 'Jln Panglima denai',
-            //     city: 'Medan',
-            //     province: 'Sumatera Utara'
-            // },
-            // {
-            //     id: 8,
-            //     name: 'Alex Smith',
-            //     age: 30,
-            //     gender: {
-            //         name: 'Wanita',
-            //         id: 2
-            //     },
-            //     contactNumber: '08123456789',
-            //     date: '2023-10-01',
-            //     status: 'active',
-            //     address: 'Jln Katamso 109',
-            //     city: 'Medan',
-            //     province: 'Sumatera Utara'
-            // },
-            // {
-            //     id: 9,
-            //     name: 'John Doe',
-            //     age: 25,
-            //     gender: {
-            //         name: 'Laki-laki',
-            //         id: 1
-            //     },
-            //     contactNumber: '08123456789',
-            //     date: '2023-10-01',
-            //     status: 'active',
-            //     address: 'Jln Panglima denai',
-            //     city: 'Medan',
-            //     province: 'Sumatera Utara'
-            // },
-            // {
-            //     id: 10,
-            //     name: 'Alex Smith',
-            //     age: 30,
-            //     gender: {
-            //         name: 'Wanita',
-            //         id: 2
-            //     },
-            //     contactNumber: '08123456789',
-            //     date: '2023-10-01',
-            //     status: 'active',
-            //     address: 'Jln Katamso 109',
-            //     city: 'Medan',
-            //     province: 'Sumatera Utara'
-            // }
         ];
     }
 

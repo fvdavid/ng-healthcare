@@ -1,0 +1,41 @@
+@defer (on viewport) {
+
+    <div class="card">
+        <p-table [value]="records" [tableStyle]="{ 'min-width': '50rem' }" [paginator]="true" [rows]="5">
+            <ng-template #header>
+                <tr>
+                    <th>No</th>
+                    <th>Name</th>
+                    <th>Diagnosis</th>
+                    <th>Treatment</th>
+                    <th>Medications</th>
+                    <th>Tanggal</th>
+                </tr>
+            </ng-template>
+            <ng-template #body let-record>
+                <tr>
+                    <td>
+                        @for(r of records; track $index; let i = $index) {
+                            {{ i + 1 }}
+                        }
+                    </td>
+                    <td>{{ patien.name }}</td>
+                    <td>{{ record.diagnosis }}</td>
+                    <td>{{ record.treatment }}</td>
+                    <td>{{ record.medications }}</td>
+                    <td> {{ record.lastVisitDate }} </td>
+                </tr>
+            </ng-template>
+
+            <ng-template #emptymessage>
+                <tr>
+                    <td colspan="8">No Patient Records found.</td>
+                </tr>
+            </ng-template>
+
+        </p-table>
+    </div>
+
+} @placeholder {
+<div>Large component placeholder</div>
+}

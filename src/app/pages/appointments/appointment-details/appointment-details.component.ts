@@ -7,8 +7,9 @@ import { Fluid } from 'primeng/fluid';
 import { ButtonModule } from 'primeng/button';
 import { InputTextModule } from 'primeng/inputtext';
 import { SelectModule } from 'primeng/select';
-import { PatiensService, Patient } from '../../../services/patiens.service';
+import { PatiensService } from '../../../services/patiens.service';
 import { Doctor, DoctorsService } from '../../../services/doctors.service';
+import { Patient } from '../../../model/patient';
 
 @Component({
     selector: 'app-appointment-details',

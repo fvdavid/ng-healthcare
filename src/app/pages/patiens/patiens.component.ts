@@ -81,6 +81,10 @@ export class PatiensComponent implements OnDestroy {
         });
     }
 
+    handleSelect(patient: Patient) {
+        console.log('patient ==> ', patient);
+    }
+
     ngOnDestroy() {
         if (this.ref) {
             this.ref.close();

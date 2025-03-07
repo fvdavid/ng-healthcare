@@ -3,30 +3,48 @@ import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { MenuItem } from 'primeng/api';
 import { AppMenuitem } from './app.menuitem';
+import { AvatarModule } from 'primeng/avatar';
 
 @Component({
     selector: 'app-menu',
     standalone: true,
-    imports: [CommonModule, AppMenuitem, RouterModule],
+    imports: [CommonModule, AppMenuitem, RouterModule, AvatarModule],
     template: `
         <!-- <ul class="layout-menu">
-        <ng-container *ngFor="let item of model; let i = index">
-            <li app-menuitem *ngIf="!item.separator" [item]="item" [index]="i" [root]="true"></li>
-            <li *ngIf="item.separator" class="menu-separator"></li>
-        </ng-container>
-    </ul>  -->
+            <ng-container *ngFor="let item of model; let i = index">
+                <li app-menuitem *ngIf="!item.separator" [item]="item" [index]="i" [root]="true"></li>
+                <li *ngIf="item.separator" class="menu-separator"></li>
+            </ng-container>
+        </ul>  -->
 
-        <ul class="layout-menu">
-            @for (item of model; track $index; let i = $index) {
-                <ng-container>
-                    @if (!item.separator) {
-                        <li app-menuitem [item]="item" [index]="i" [root]="true"></li>
-                    } @else {
-                        <li class="menu-separator"></li>
-                    }
-                </ng-container>
-            }
-        </ul>
+        <div class="flex flex-col h-full">
+            <ul class="layout-menu">
+                @for (item of model; track $index; let i = $index) {
+                    <ng-container>
+                        @if (!item.separator) {
+                            <li app-menuitem [item]="item" [index]="i" [root]="true"></li>
+                        } @else {
+                            <li class="menu-separator"></li>
+                        }
+                    </ng-container>
+                }
+            </ul>
+
+            <div class="mt-auto">
+                <hr class="mb-4 mx-4 border-t border-0 border-surface" />
+                <a
+                    href="https://github.com/fvdavid"
+                    target="_blank"
+                    pRipple
+                    class="m-4 flex items-center cursor-pointer p-4 gap-2 rounded-border
+                    text-surface-700 dark:text-surface-100 hover:bg-surface-100 dark:hover:bg-surface-700 duration-150
+                    transition-colors p-ripple"
+                >
+                    <p-avatar image="https://avatars.githubusercontent.com/u/11892197?v=4" shape="circle" />
+                    <span class="font-bold">fvdavid</span>
+                </a>
+            </div>
+        </div>
     `
 })
 export class AppMenu {
@@ -40,8 +58,13 @@ export class AppMenu {
             // },
 
             {
-                label: 'Dashboard',
+                label: 'Heartcare',
                 items: [
+                    {
+                        label: 'Dashboard',
+                        icon: 'pi pi-fw pi-home',
+                        routerLink: ['/']
+                    },
                     {
                         label: 'Patients',
                         icon: 'pi pi-fw pi-home',

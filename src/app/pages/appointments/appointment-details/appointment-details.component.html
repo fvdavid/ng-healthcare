@@ -6,14 +6,14 @@
             filterBy="name" placeholder="Select a Patient" fluid>
             <ng-template #selectedItem let-selectedOption>
                 <div class="flex items-center gap-2">
-                    <img src="https://primefaces.org/cdn/primeng/images/demo/avatar/asiyajavayant.png"
+                    <img src="https://primefaces.org/cdn/primeng/images/demo/avatar/{{ selectedOption.photoProfile }}"
                         style="width: 18px" />
                     <div>{{ selectedOption.name }}</div>
                 </div>
             </ng-template>
             <ng-template let-patien #item>
                 <div class="flex items-center gap-2">
-                    <img src="https://primefaces.org/cdn/primeng/images/demo/avatar/asiyajavayant.png"
+                    <img src="https://primefaces.org/cdn/primeng/images/demo/avatar/{{ patien.photoProfile }}"
                         style="width: 18px" />
                     <div>{{ patien.name }}</div>
                 </div>
@@ -23,29 +23,33 @@
 
     <div>
         <label for="doctor" class="block font-bold mb-3">Doctor</label>
-        <!-- <input type="text" pInputText id="name" [(ngModel)]="appointment.doctor!.name" required autofocus fluid />
-
-        @if (!appointment.doctor!.name) {
-        <small class="text-red-500">Name is required.</small>
-        } -->
-
         <p-select [options]="doctors" [(ngModel)]="appointment.doctor" optionLabel="name" [filter]="true"
             filterBy="name" placeholder="Select a Doctor" fluid>
             <ng-template #selectedItem let-selectedOptionDoctor>
                 <div class="flex items-center gap-2">
-                    <img src="https://primefaces.org/cdn/primeng/images/demo/avatar/asiyajavayant.png"
+                    <img src="https://primefaces.org/cdn/primeng/images/demo/avatar/{{ selectedOptionDoctor.photoProfile }}"
                         style="width: 18px" />
                     <div>{{ selectedOptionDoctor.name }}</div>
                 </div>
             </ng-template>
             <ng-template let-doctor #item>
                 <div class="flex items-center gap-2">
-                    <img src="https://primefaces.org/cdn/primeng/images/demo/avatar/asiyajavayant.png"
+                    <img src="https://primefaces.org/cdn/primeng/images/demo/avatar/{{ doctor.photoProfile }}"
                         style="width: 18px" />
                     <div>{{ doctor.name }}</div>
                 </div>
             </ng-template>
         </p-select>
+    </div>
+
+    <div>
+        <label for="statuse" class="block font-bold mb-3">Status</label>
+        <p-select [options]="statuses" [(ngModel)]="appointment.status" optionValue="value" optionLabel="label"
+            [checkmark]="true" placeholder="Pilih Status" fluid />
+
+        @if (!appointment.status) {
+        <small class="text-red-500">Status is required.</small>
+        }
     </div>
 
     <p-fluid class="flex flex-wrap gap-4">
@@ -76,7 +80,7 @@
 
     <div>
         <label for="description" class="block font-bold mb-3">Department</label>
-        <input type="text" pInputText id="name" [(ngModel)]="appointment.department" required autofocus fluid />
+        <input type="text" pInputText id="name" [(ngModel)]="appointment.department" required fluid />
 
         @if (!appointment.department) {
         <small class="text-red-500">Department is required.</small>

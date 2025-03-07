@@ -29,6 +29,8 @@ export class AppointmentDetailsComponent implements OnInit {
     doctorsService: DoctorsService = inject(DoctorsService);
     doctors: Doctor[] = [];
 
+    statuses: any[] = [];
+
     constructor() {}
 
     ngOnInit(): void {
@@ -39,6 +41,13 @@ export class AppointmentDetailsComponent implements OnInit {
         this.doctorsService.getDoctors().then((d) => {
             this.doctors = d;
         });
+
+        this.statuses = [
+            { label: 'Active', value: 'active' },
+            { label: 'Pending', value: 'pending' },
+            { label: 'Cancelled', value: 'cancelled' },
+            { label: 'Info', value: 'info' }
+        ];
     }
 
     saveAppointment() {

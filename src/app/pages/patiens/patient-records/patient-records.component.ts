@@ -1,5 +1,5 @@
 import { PatientRecord } from './../../../model/patient';
-import { Component, inject } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { TableModule } from 'primeng/table';
 import { Patient } from '../../../model/patient';
 import { DynamicDialogConfig } from 'primeng/dynamicdialog';
@@ -10,7 +10,7 @@ import { DynamicDialogConfig } from 'primeng/dynamicdialog';
     templateUrl: './patient-records.component.html',
     styleUrl: './patient-records.component.scss'
 })
-export class PatientRecordsComponent {
+export class PatientRecordsComponent implements OnInit {
 
     public config = inject(DynamicDialogConfig);
     patien: Patient = this.config.data.patientInfo;

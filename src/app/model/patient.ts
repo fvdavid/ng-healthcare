@@ -13,6 +13,7 @@ export interface Patient {
     province?: string;
     photoProfile?: string;
     patientRecords?: PatientRecord[];
+    patientFlow?: PatientFlow[];
 }
 
 export interface PatientRecord {
@@ -20,4 +21,11 @@ export interface PatientRecord {
     treatment?: string;
     medications?: string[];
     lastVisitDate?: string;
+}
+
+export interface PatientFlow {
+    checkInTime?: string;
+    consultationTime?: string;
+    dischargeTime?: string;
+    currentStatus?: string;
 }

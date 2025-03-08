@@ -27,6 +27,14 @@ export class PatiensService {
                         medications: ['Lisinopril', 'X1', 'X2'],
                         lastVisitDate: '2025-10-12'
                     }
+                ],
+                patientFlow: [
+                    {
+                        checkInTime: '2025-10-12 09:00',
+                        consultationTime: '2025-10-12 09:30',
+                        dischargeTime: '2025-10-12 11:00',
+                        currentStatus: 'Discharged'
+                    }
                 ]
             },
             {
@@ -50,6 +58,14 @@ export class PatiensService {
                         treatment: 'Insulin therapy',
                         medications: ['Metformin'],
                         lastVisitDate: '2025-10-01'
+                    }
+                ],
+                patientFlow: [
+                    {
+                        checkInTime: '2025-10-12 09:00',
+                        consultationTime: '2025-10-12 09:30',
+                        dischargeTime: '-',
+                        currentStatus: 'In Consultation'
                     }
                 ]
             }

@@ -42,6 +42,13 @@ export class PatiensService {
                         policyNumber: 'HC123456',
                         coverageType: 'Kelas III'
                     }
+                ],
+                emergencyContacts: [
+                    {
+                        name: 'Marina Br Tinambunan',
+                        relationship: 'Ibu',
+                        contactNumber: '0123-456-7891'
+                    }
                 ]
             },
             {
@@ -80,6 +87,13 @@ export class PatiensService {
                         provider: 'MediShield',
                         policyNumber: 'MS789012',
                         coverageType: 'Basic'
+                    }
+                ],
+                emergencyContacts: [
+                    {
+                        name: 'Aldo Siagian',
+                        relationship: 'Ayah',
+                        contactNumber: '0123-456-7891'
                     }
                 ]
             }

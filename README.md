@@ -5,6 +5,11 @@ This project was generated using [Angular CLI](https://github.com/angular/angula
 ## Fitur
 
     - Patient Management
+        [x] Patient Flow
+        [x] Patient Records
+        [x] Insurance Information
+        [x] Emergency Contacts
+
     - Doctor Management
     - Appointment Scheduling
 

@@ -15,6 +15,7 @@ export interface Patient {
     patientRecords?: PatientRecord[];
     patientFlow?: PatientFlow[];
     patientInsurance?: PatientInsurance[];
+    emergencyContacts?: EmergencyContacts[];
 }
 
 export interface PatientRecord {
@@ -35,4 +36,10 @@ export interface PatientInsurance {
     provider?: string;
     policyNumber?: string;
     coverageType?: string;
+}
+
+export interface EmergencyContacts {
+    name: string;
+    relationship?: string;
+    contactNumber?: string;
 }

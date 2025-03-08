@@ -1,0 +1,44 @@
+@defer (on viewport) {
+
+<div class="card">
+    <p-table [value]="emergencyContacts" [tableStyle]="{ 'min-width': '50rem' }" [paginator]="true" [rows]="5">
+        <ng-template #header>
+            <tr>
+                <th>No</th>
+                <th>Name</th>
+                <th>Kontak Darurat</th>
+                <th>Hubungan</th>
+                <th>Kontak</th>
+            </tr>
+        </ng-template>
+        <ng-template #body let-emergencyContact>
+            <tr>
+                <td>
+                    @for(r of emergencyContacts; track $index; let i = $index) {
+                    {{ i + 1 }}
+                    }
+                </td>
+                <td>{{ patien.name }}</td>
+                <td>{{ emergencyContact.name }}</td>
+                <td>{{ emergencyContact.relationship }}</td>
+                <td>{{ emergencyContact.contactNumber }}</td>
+            </tr>
+        </ng-template>
+
+        <ng-template #emptymessage>
+            <tr>
+                <td colspan="8">No Emergency Contacts found.</td>
+            </tr>
+        </ng-template>
+
+    </p-table>
+</div>
+
+} @placeholder {
+<p>loading...</p>
+} @loading () {
+<!-- after 100ms; minimum 1s -->
+<p>loading...</p>
+} @error {
+<p>Failed to load component.</p>
+}

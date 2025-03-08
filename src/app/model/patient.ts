@@ -14,6 +14,7 @@ export interface Patient {
     photoProfile?: string;
     patientRecords?: PatientRecord[];
     patientFlow?: PatientFlow[];
+    patientInsurance?: PatientInsurance[];
 }
 
 export interface PatientRecord {
@@ -28,4 +29,10 @@ export interface PatientFlow {
     consultationTime?: string;
     dischargeTime?: string;
     currentStatus?: string;
+}
+
+export interface PatientInsurance {
+    provider?: string;
+    policyNumber?: string;
+    coverageType?: string;
 }

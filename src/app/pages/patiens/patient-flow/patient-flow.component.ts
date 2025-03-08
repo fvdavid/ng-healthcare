@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { DynamicDialogConfig } from 'primeng/dynamicdialog';
 import { Patient, PatientFlow } from '../../../model/patient';
 import { TableModule } from 'primeng/table';
@@ -9,7 +9,7 @@ import { TableModule } from 'primeng/table';
     templateUrl: './patient-flow.component.html',
     styleUrl: './patient-flow.component.scss'
 })
-export class PatientFlowComponent {
+export class PatientFlowComponent implements OnInit {
     public config = inject(DynamicDialogConfig);
     patien: Patient = this.config.data.patientInfo;
 

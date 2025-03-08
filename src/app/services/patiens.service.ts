@@ -35,6 +35,13 @@ export class PatiensService {
                         dischargeTime: '2025-10-12 11:00',
                         currentStatus: 'Discharged'
                     }
+                ],
+                patientInsurance: [
+                    {
+                        provider: 'BPJS',
+                        policyNumber: 'HC123456',
+                        coverageType: 'Kelas III'
+                    }
                 ]
             },
             {
@@ -66,6 +73,13 @@ export class PatiensService {
                         consultationTime: '2025-10-12 09:30',
                         dischargeTime: '-',
                         currentStatus: 'In Consultation'
+                    }
+                ],
+                patientInsurance: [
+                    {
+                        provider: 'MediShield',
+                        policyNumber: 'MS789012',
+                        coverageType: 'Basic'
                     }
                 ]
             }

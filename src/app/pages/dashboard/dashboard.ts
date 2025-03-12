@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { StatsWidget } from './components/statswidget';
 import { PasientChartComponent } from './components/pasient-chart/pasient-chart.component';
-import { PasientAgeChartComponent } from "./components/pasient-age-chart/pasient-age-chart.component";
+import { PasientAgeChartComponent } from './components/pasient-age-chart/pasient-age-chart.component';
 
 @Component({
     selector: 'app-dashboard',

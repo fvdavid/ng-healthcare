@@ -9,6 +9,7 @@ This project was generated using [Angular CLI](https://github.com/angular/angula
         [x] Patient Records
         [x] Insurance Information
         [x] Emergency Contacts
+        [x] Charts
 
     - Doctor Management
     - Appointment Scheduling

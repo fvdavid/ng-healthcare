@@ -66,6 +66,11 @@ export class AppMenu {
                         routerLink: ['/']
                     },
                     {
+                        label: 'Appointments',
+                        icon: 'pi pi-fw pi-home',
+                        routerLink: ['/page/appointments']
+                    },
+                    {
                         label: 'Patients',
                         icon: 'pi pi-fw pi-home',
                         routerLink: ['/page/patients']
@@ -74,11 +79,6 @@ export class AppMenu {
                         label: 'Doctors',
                         icon: 'pi pi-fw pi-home',
                         routerLink: ['/page/doctors']
-                    },
-                    {
-                        label: 'Appointments',
-                        icon: 'pi pi-fw pi-home',
-                        routerLink: ['/page/appointments']
                     }
                 ]
             }

@@ -33,7 +33,7 @@ import { LayoutService } from '../service/layout.service';
                         />
                     </g>
                 </svg>
-                <span>fv Heartcare</span>
+                <span>ng-healthcare</span>
             </a>
         </div>
 

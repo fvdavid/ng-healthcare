@@ -85,8 +85,7 @@ export class PatiensComponent implements OnDestroy {
     }
 
     handleSelect(patient: Patient) {
-
-        console.log('patient ==> ', patient);
+        // console.log('patient ==> ', patient);
 
         this.ref = this.dialogService.open(PatientInfoComponent, {
             header: 'Pasien Informasi',

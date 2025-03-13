@@ -38,7 +38,12 @@ export class DoctorDetailsComponent {
         ];
     }
 
-    hideDialog() {}
+    hideDialog() {
+        this.ref.close({
+            buttonType: 'cancel',
+            summary: 'Nothing has changed'
+        });
+    }
 
     saveProduct() {}
 }

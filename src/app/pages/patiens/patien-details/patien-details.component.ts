@@ -49,7 +49,7 @@ export class PatienDetailsComponent {
     hideDialog() {
         this.ref.close({
             buttonType: 'cancel',
-            summary: 'No Technician Selected'
+            summary: 'Nothing has changed'
         });
     }
 }

@@ -1,23 +1,11 @@
 import { Injectable } from '@angular/core';
-import { Doctor } from './doctors.service';
-import { Patient } from '../model/patient';
-
-export interface Appointment {
-    id?: string;
-    patient?: Patient;
-    doctor?: Doctor;
-    appointmentDate?: string;
-    appointmentTime?: string;
-    department?: string;
-    createAt?: string;
-    status?: string;
-}
+import { Appointment } from '../model/appointment';
 
 @Injectable()
 export class AppointmentsService {
     constructor() {}
 
-    getDataAppointments() {
+    getDataAppointments(): Appointment[] {
         return [
             {
                 id: 'fv01',
@@ -35,7 +23,37 @@ export class AppointmentsService {
                     address: 'Jln Panglima denai',
                     city: 'Medan',
                     province: 'Sumatera Utara',
-                    photoProfile: 'bernardodominic.png'
+                    photoProfile: 'bernardodominic.png',
+                    patientRecords: [
+                        {
+                            diagnosis: 'Hypertension',
+                            treatment: 'Prescribed meds',
+                            medications: ['Lisinopril', 'X1', 'X2'],
+                            lastVisitDate: '2025-10-12'
+                        }
+                    ],
+                    patientFlow: [
+                        {
+                            checkInTime: '2025-10-12 09:00',
+                            consultationTime: '2025-10-12 09:30',
+                            dischargeTime: '2025-10-12 11:00',
+                            currentStatus: 'Discharged'
+                        }
+                    ],
+                    patientInsurance: [
+                        {
+                            provider: 'BPJS',
+                            policyNumber: 'HC123456',
+                            coverageType: 'Kelas III'
+                        }
+                    ],
+                    emergencyContacts: [
+                        {
+                            name: 'Marina Br Tinambunan',
+                            relationship: 'Ibu',
+                            contactNumber: '0123-456-7891'
+                        }
+                    ]
                 },
                 doctor: {
                     id: 1,
@@ -75,7 +93,37 @@ export class AppointmentsService {
                     address: 'Jln Katamso 109',
                     city: 'Medan',
                     province: 'Sumatera Utara',
-                    photoProfile: 'ivanmagalhaes.png'
+                    photoProfile: 'ivanmagalhaes.png',
+                    patientRecords: [
+                        {
+                            diagnosis: 'Diabetes Type 2',
+                            treatment: 'Insulin therapy',
+                            medications: ['Metformin'],
+                            lastVisitDate: '2025-10-01'
+                        }
+                    ],
+                    patientFlow: [
+                        {
+                            checkInTime: '2025-10-12 09:00',
+                            consultationTime: '2025-10-12 09:30',
+                            dischargeTime: '-',
+                            currentStatus: 'In Consultation'
+                        }
+                    ],
+                    patientInsurance: [
+                        {
+                            provider: 'MediShield',
+                            policyNumber: 'MS789012',
+                            coverageType: 'Basic'
+                        }
+                    ],
+                    emergencyContacts: [
+                        {
+                            name: 'Aldo Siagian',
+                            relationship: 'Ayah',
+                            contactNumber: '0123-456-7891'
+                        }
+                    ]
                 },
                 doctor: {
                     id: 2,

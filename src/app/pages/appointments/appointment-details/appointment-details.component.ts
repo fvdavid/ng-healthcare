@@ -1,7 +1,6 @@
 import { DatePickerModule } from 'primeng/datepicker';
 import { Component, computed, inject, OnInit } from '@angular/core';
 import { DynamicDialogConfig, DynamicDialogRef } from 'primeng/dynamicdialog';
-import { Appointment } from '../../../services/appointments.service';
 import { FormsModule } from '@angular/forms';
 import { Fluid } from 'primeng/fluid';
 import { ButtonModule } from 'primeng/button';
@@ -10,6 +9,7 @@ import { SelectModule } from 'primeng/select';
 import { PatiensService } from '../../../services/patiens.service';
 import { Doctor, DoctorsService } from '../../../services/doctors.service';
 import { Patient } from '../../../model/patient';
+import { Appointment } from '../../../model/appointment';
 
 @Component({
     selector: 'app-appointment-details',

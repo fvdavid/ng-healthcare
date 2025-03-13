@@ -1,5 +1,5 @@
 import { Component, ElementRef, inject, ViewChild } from '@angular/core';
-import { Appointment, AppointmentsService } from '../../services/appointments.service';
+import { AppointmentsService } from '../../services/appointments.service';
 import { Table, TableModule } from 'primeng/table';
 import { IconFieldModule } from 'primeng/iconfield';
 import { InputIconModule } from 'primeng/inputicon';
@@ -15,6 +15,7 @@ import { Doctor, DoctorsService } from '../../services/doctors.service';
 import { TagModule } from 'primeng/tag';
 import { SelectModule } from 'primeng/select';
 import { Patient } from '../../model/patient';
+import { Appointment } from '../../model/appointment';
 
 @Component({
     selector: 'app-appointments',

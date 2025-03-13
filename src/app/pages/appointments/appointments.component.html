@@ -24,11 +24,6 @@
                         Pasien
                         <p-columnFilter field="patient" matchMode="in" display="menu" [showMatchModes]="false"
                             [showOperator]="false" [showAddButton]="false">
-                            <!-- <ng-template #header>
-                                <div class="px-3 pt-3 pb-0">
-                                    <span class="font-bold">Pilih Pasien</span>
-                                </div>
-                            </ng-template> -->
                             <ng-template #filter let-value let-filter="filterCallback">
                                 <p-multiselect [ngModel]="value" [options]="patients" placeholder="Pilih Pasien"
                                     (onChange)="filter($event.value)" optionLabel="name" styleClass="w-full md:w-80">
@@ -51,11 +46,6 @@
                         Docter
                         <p-columnFilter field="doctor" matchMode="in" display="menu" [showMatchModes]="false"
                             [showOperator]="false" [showAddButton]="false">
-                            <!-- <ng-template #header>
-                                <div class="px-3 pt-3 pb-0">
-                                    <span class="font-bold">Pilih Dokter</span>
-                                </div>
-                            </ng-template> -->
                             <ng-template #filter let-value let-filter="filterCallback">
                                 <p-multiselect styleClass="w-full md:w-80" [ngModel]="value" [options]="doctors"
                                     placeholder="Pilih Dokter" (onChange)="filter($event.value)" optionLabel="name"
